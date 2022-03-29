@@ -105,7 +105,7 @@ class ProductController {
         try {
             let product = await Product.findById(req.params.id);
 
-            if (req.files) {
+            if (req.files.length !== 0) {
                 product.images = [];
             }
 
