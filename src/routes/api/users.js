@@ -21,6 +21,7 @@ router.put(
     userController.updateAvatar,
 );
 router.put('/delete-my-avatar', isAuth, userController.deleteAvatar);
+router.put('/reset-password/:id', userController.updatePassword);
 router.put('/:id', userController.updatePermission);
 
 router.delete('/:id', userController.destroy);

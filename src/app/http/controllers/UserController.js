@@ -1,5 +1,8 @@
 const User = require('../../models/User');
 
+const bcrypt = require('bcrypt');
+const SALT_ROUNDS = 10;
+
 const jwt = require('jsonwebtoken');
 const promisify = require('util').promisify;
 
@@ -69,12 +72,26 @@ class UserController {
         } catch (error) {
             return next(error);
         }
-    }
+    } 
 
     async updatePermission(req, res, next) {
         try {
             await User.updateOne({ _id: req.params.id }, req.body);
             return res.json('Updated successfully!');
+        } catch (error) {
+            return next(error);
+        }
+    }
+
+    async updatePassword(req, res, next) {
+        const hashPassword = bcrypt.hashSync(
+            req.body.password,
+            SALT_ROUNDS,
+        );
+
+        try {
+            await User.updateOne({ _id: req.params.id }, { password: hashPassword });
+            return res.json('Updated password successfully!');
         } catch (error) {
             return next(error);
         }
