@@ -20,7 +20,7 @@ const Order = new Schema(
         deliveryDate: { type: Date, default: null },
         idEmployee: { type: String, default: null },
         approvalDate: { type: Date, default: null },
-        status: { type: String, default: 'Đang chờ xác nhận...' },
+        status: { type: String, default: 'Đang chờ xác nhận' },
     },
     {
         timestamps: true,

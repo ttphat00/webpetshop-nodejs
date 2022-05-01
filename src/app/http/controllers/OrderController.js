@@ -1,6 +1,15 @@
 const Order = require('../../models/Order');
 
 class OrderController {
+    async index(req, res, next) {
+        try {
+            const orders = await Order.find({});
+            return res.json(orders);
+        } catch (error) {
+            return next(error);
+        }
+    }
+
     async showByIdCustomer(req, res, next) {
         try {
             const orders = await Order.find({ idCustomer: req.user._id });

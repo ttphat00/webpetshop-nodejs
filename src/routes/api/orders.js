@@ -24,4 +24,7 @@ router.get('/by-status', orderController.showByStatus);
 //get an order by id
 router.get('/:id', orderController.show);
 
+//get all orders
+router.get('/', orderController.index);
+
 module.exports = router;
