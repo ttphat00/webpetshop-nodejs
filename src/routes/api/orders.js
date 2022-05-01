@@ -19,7 +19,7 @@ router.get('/my-orders', isAuth, orderController.showByIdCustomer);
 router.get('/confirmed-orders', isAuth, orderController.showByIdEmployee);
 
 //get orders by status
-router.get('/by-status', orderController.showByStatus);
+// router.get('/by-status', orderController.showByStatus);
 
 //get an order by id
 router.get('/:id', orderController.show);
