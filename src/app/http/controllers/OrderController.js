@@ -28,14 +28,14 @@ class OrderController {
         }
     }
 
-    // async showByStatus(req, res, next) {
-    //     try {
-    //         const orders = await Order.find(req.body);
-    //         return res.json(orders);
-    //     } catch (error) {
-    //         return next(error);
-    //     }
-    // }
+    async showByStatus(req, res, next) {
+        try {
+            const orders = await Order.find(req.body);
+            return res.json(orders);
+        } catch (error) {
+            return next(error);
+        }
+    }
 
     async show(req, res, next) {
         try {
